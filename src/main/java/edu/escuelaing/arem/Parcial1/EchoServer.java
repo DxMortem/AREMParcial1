@@ -20,6 +20,7 @@ public class EchoServer {
             Socket clientSocket = null;
             try {
                 clientSocket = serverSocket.accept();
+                System.out.println("Estoy Listo");
             } catch (IOException e) {
                 System.err.println("Accept failed.");
                 System.exit(1);
@@ -52,7 +53,6 @@ public class EchoServer {
 
     private static String results(String req) {
         String[] numbstr = req.split(",");
-        System.out.println(numbstr[1]);
         List<String> numberstr = Arrays.asList(numbstr);
         ArrayList<Integer> nums = new ArrayList<>();
         for (int i=0; i<numberstr.size();i++) {
@@ -70,7 +70,6 @@ public class EchoServer {
                 "\"min\":" + Collections.min(nums).toString() + "," +
                 "\"sum\":" + sum + "," +
                 "\"mult\":" + mult + "}";
-        System.out.println(response);
         return "{" + response + "}";
     }
 
